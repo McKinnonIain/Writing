@@ -1,0 +1,119 @@
+<html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Input your values 1 - Low, 5 - High</h1>
+<p> </p>
+
+<form id="mainForm">
+  <label for="money">Money:</label>
+  <input type="number" id="money" name="money" min="1" max="5" value="0"><br><br>
+  <label for="loveofwriting">Love of Writing:</label>
+  <input type="number" id="loveofwriting" name="loveofwriting" min="1" max="5" value="0"><br><br>
+  <label for="adoration">Adoration:</label>
+  <input type="number" id="adoration" name="adoration" min="1" max="5" value="0"><br><br>
+  <label for="accomplishment">Accomplishment:</label>
+  <input type="number" id="accomplishment" name="accomplishment" min="1" max="5" value="0"><br><br>
+  <label for="storytotell">Story to Tell:</label>
+  <input type="number" id="storytotell" name="storytotell" min="1" max="5" value="0"><br><br>
+</form>
+
+<button form="mainForm" type="button" onclick="updateValues(this.form.money.value,this.form.loveofwriting.value,this.form.adoration.value,this.form.accomplishment.value,this.form.storytotell.value)">Submit</button>
+
+</body>
+
+  <head>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.7.1/js/anychart-radar.min.js"></script>
+    <style type="text/css">
+      html, body, #container {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script>
+	var money = 0;
+	var loveofwriting = 0;
+	var adoration = 0;
+	var accomplishment = 0;
+	var storytotell = 0;
+	
+	// create radar chart
+	var chart = anychart.radar();
+	
+	function updateValues(money,loveofwriting,adoration,accomplishment,storytotell) {
+		console.log(money, loveofwriting, adoration, accomplishment, storytotell);
+		
+		var newData = [
+       {x: "Money", value: money},
+       {x: "Love of Writing", value: loveofwriting},
+       {x: "Adoration", value: adoration},
+       {x: "Accomplishment", value: accomplishment},
+       {x: "Story to Tell", value: storytotell},
+            ];
+
+		
+		chart.data(newData);
+	}
+  
+    anychart.onDocumentReady(function () {
+      // Your data
+     var data1 = [
+       {x: "Money", value: money},
+       {x: "Love of Writing", value: loveofwriting},
+       {x: "Adoration", value: adoration},
+       {x: "Accomplishment", value: accomplishment},
+       {x: "Story to Tell", value: storytotell},
+            ];
+
+     
+
+
+
+     // set chart yScale settings
+     chart.yScale()
+       .minimum(0)
+       .maximum(5)
+       .ticks({'interval':1});
+
+      // color alternating cells
+      chart.yGrid().palette(["gray 0.1", "gray 0.2"]);
+
+      // create first series
+      chart.area(data1).name('Results').markers(true).fill("#E55934", 0.3).stroke("#E55934")
+     
+
+      // set chart title
+      chart.title("Pentagram of Motivation")
+        // set legend
+        .legend(true);
+
+      // set container id for the chart
+      chart.container('container');
+      // initiate chart drawing
+      chart.draw();
+
+    });
+  </script>
+
+<html>
+<body>
+
+<p> </p>
+
+<p><a href="http://www.iain-mckinnon.co.uk/" target="_blank">Visit Iain McKinnon @ www.iain-mckinnon.com</a></p>
+
+<p> </p>
+
+</body>
+</html>
+
+</html>
