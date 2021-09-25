@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="Cards.css">
+        <script>
+            function flipSuperpower()
+            {
+                const path = "Images/Superpowers/";
+                const superpowers = ["flight", "invisibility", "mind%20reading", "necromancy", "precognition", "telekenisis", "telepathy", "x-ray%20vision"];
+                let randomNum = Math.floor(Math.random()*superpowers.length);
+                
+                if (!document.querySelector("#flip-container-superpower").classList.contains("flip"))
+                {
+                    document.getElementById('superpowerBack').src = path + superpowers[randomNum] + ".png";
+                }    
+                document.querySelector("#flip-container-superpower").classList.toggle("flip");
+            }
+
+            function flipActivator()
+            {
+                const path = "Images/Activators/";
+                const activators = ["chemical%20serum", "human%20blood", "human%20flesh", "rare%20mineral", "rare%20plant"];
+                let randomNum = Math.floor(Math.random()*activators.length);
+
+                if (!document.querySelector("#flip-container-activator").classList.contains("flip"))
+                {
+                    document.getElementById('activatorBack').src = path + activators[randomNum] + ".png";
+                }    
+                document.querySelector("#flip-container-activator").classList.toggle("flip");
+            }
+
+            function flipPopulation()
+            {
+                const path = "Images/Population/";
+                const populations = ["one%20percent", "ten%20percent", "fifty%20percent", "ninety%20percent", "one%20hundered%20percent"];
+                let randomNum = Math.floor(Math.random()*populations.length);
+
+                if (!document.querySelector("#flip-container-population").classList.contains("flip"))
+                {
+                    document.getElementById('populationBack').src = path + populations[randomNum] + ".png";
+                }    
+                document.querySelector("#flip-container-population").classList.toggle("flip");
+            }
+        </script>   
+    </head>
+    <body>
+        <div id="card-container">            
+            <div id="flip-container-superpower" onclick="flipSuperpower()">
+                <div class="flipper">
+                    <div class="front">
+                        <img id="superpowerFront" src="Images/superpower.png" alt="Superpowers">
+                    </div>
+                    <div class="back">
+                        <img id="superpowerBack" src="Images/superpower.png" alt="Superpowers">
+                    </div>
+                </div>
+            </div>
+            <div id="flip-container-activator" onclick="flipActivator()">
+                <div class="flipper">
+                    <div class="front">
+                        <img id="activatorFront" src="Images/activation.png" alt="Activation">
+                    </div>
+                    <div class="back">
+                        <img id="activatorBack" src="Images/activation.png" alt="Activation">
+                    </div>
+                </div>
+            </div>
+            <div id="flip-container-population" onclick="flipPopulation()">
+                <div class="flipper">
+                    <div class="front">
+                        <img id="populationFront" src="Images/population.png" alt="Population">
+                    </div>
+                    <div class="back">
+                        <img id="populationBack" src="Images/population.png" alt="Population">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+<html>
